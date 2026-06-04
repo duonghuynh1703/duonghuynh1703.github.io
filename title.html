@@ -17,23 +17,30 @@ body, td, th {
     font-family: sans-serif;
 }
 
-/* Định dạng chung cho các ảnh trong bảng để không bị tràn */
-.banner-table img {
+/* Định dạng riêng cho ảnh GIF bên trái để phủ kín và cân xứng */
+.gif-left {
     display: block;
-    object-fit: contain; /* Giữ nguyên tỉ lệ hình ảnh không bị méo */
-    max-height: 100%;
-    max-width: 100%;
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Ép ảnh phủ kín 100% diện tích ô, không bị khoảng đen */
+}
+
+/* Định dạng riêng cho cây búa bên phải */
+.bua-right {
+    display: block;
+    height: 130px; /* Thu nhỏ một chút để vừa vặn, không chạm viền */
+    width: auto;
     margin: 0 auto;
 }
 </style>
 </head>
 
 <body>
-<table class="banner-table" width="100%" height="150" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" height="150" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
   <tbody>
     <tr>
-      <td width="20%" height="150" align="center" valign="middle">
-          <img src="ảnh/፧ 𝐁𝐥𝐚𝐜𝐤𝐩𝐢𝐧𝐤 𝐆𝐈𝐅.gif" height="150" alt="Blackpink GIF"/>
+      <td width="20%" height="150" align="center" valign="middle" style="overflow: hidden;">
+          <img src="ảnh/፧ 𝐁𝐥𝐚𝐜𝐤𝐩𝐢𝐧𝐤 𝐆𝐈𝐅.gif" class="gif-left" alt="Blackpink GIF"/>
       </td>
       
       <td width="60%" height="150" align="center" valign="middle" bgcolor="#F846E1">
@@ -42,7 +49,7 @@ body, td, th {
       </td>
       
       <td width="20%" height="150" align="center" valign="middle" bgcolor="#FFFFFF">
-          <img src="ảnh/cay bua.jpg" height="130" alt="Búa Blackpink"/>
+          <img src="ảnh/cay bua.jpg" class="bua-right" alt="Búa Blackpink"/>
       </td>
     </tr>
   </tbody>
