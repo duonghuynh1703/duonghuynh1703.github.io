@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <title>title.html</title>
 <style type="text/css">
-/* Xóa bỏ khoảng trắng mặc định của trình duyệt */
+/* Ép toàn bộ nền dải tiêu đề thành màu hồng, xóa sạch rìa trắng cứng đầu */
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #F846E1 !important; /* Màu hồng chủ đạo của bạn */
+    overflow: hidden;
 }
 
 body, td, th {
@@ -17,18 +18,18 @@ body, td, th {
     font-family: sans-serif;
 }
 
-/* Định dạng riêng cho ảnh GIF bên trái để phủ kín và cân xứng */
+/* Ảnh GIF bên trái: Phóng to phủ kín chiều cao, tự co dãn khít dải hồng */
 .gif-left {
     display: block;
     width: 100%;
-    height: 150px;
-    object-fit: cover; /* Ép ảnh phủ kín 100% diện tích ô, không bị khoảng đen */
+    height: 143px; 
+    object-fit: fill; /* Ép ảnh căng tràn lấp đầy toàn bộ ô không để lại một kẽ hở nào */
 }
 
-/* Định dạng riêng cho cây búa bên phải */
+/* Cây búa bên phải: Thu nhỏ vừa vặn, giữ nền trong suốt hoặc hòa vào nền hồng */
 .bua-right {
     display: block;
-    height: 130px; /* Thu nhỏ một chút để vừa vặn, không chạm viền */
+    height: 120px; /* Cho nhỏ lại tí để không chạm viền */
     width: auto;
     margin: 0 auto;
 }
@@ -36,19 +37,23 @@ body, td, th {
 </head>
 
 <body>
-<table width="100%" height="150" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
+<!-- Ép bảng tràn 100% màn hình và đổ toàn bộ màu nền là hồng để lấp khoảng trắng -->
+<table width="100%" height="143" border="0" cellspacing="0" cellpadding="0" bgcolor="#F846E1" style="table-layout: fixed;">
   <tbody>
     <tr>
-      <td width="20%" height="150" align="center" valign="middle" style="overflow: hidden;">
+      <!-- Ô 1: Ảnh GIF bên trái (Chiếm 20% chiều rộng) -->
+      <td width="20%" height="143" align="left" valign="top">
           <img src="ảnh/፧ 𝐁𝐥𝐚𝐜𝐤𝐩𝐢𝐧𝐤 𝐆𝐈𝐅.gif" class="gif-left" alt="Blackpink GIF"/>
       </td>
       
-      <td width="60%" height="150" align="center" valign="middle" bgcolor="#F846E1">
+      <!-- Ô 2: Phần chữ ở giữa (Chiếm 60% chiều rộng) -->
+      <td width="60%" height="143" align="center" valign="middle" bgcolor="#F846E1">
           <p style="margin: 5px 0;"><strong>Đặng Thị Thùy Dương</strong></p>
           <p style="margin: 5px 0;"><strong>CN24CD</strong></p>
       </td>
       
-      <td width="20%" height="150" align="center" valign="middle" bgcolor="#FFFFFF">
+      <!-- Ô 3: Cây búa bên phải (Chiếm 20% chiều rộng) - Đã đổi bgcolor thành màu hồng luôn -->
+      <td width="20%" height="143" align="center" valign="middle" bgcolor="#F846E1">
           <img src="ảnh/cay bua.jpg" class="bua-right" alt="Búa Blackpink"/>
       </td>
     </tr>
