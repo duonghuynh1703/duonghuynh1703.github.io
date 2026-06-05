@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Title Banner - BLACKPINK Style</title>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        /* Nền tối sâu thẳm đồng bộ với toàn bộ hệ thống trang web */
+        background-color: #0b0c10;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        padding: 10px;
+        overflow: hidden;
+    }
+
+    /* --- Khung chứa Banner chính (Thay thế cho thẻ table cũ) --- */
+    .banner-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 160px; /* Chiều cao cố định vừa vặn cho banner */
+        background: rgba(20, 10, 17, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 20, 147, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                    inset 0 0 20px rgba(248, 70, 225, 0.05);
+        overflow: hidden;
+    }
+
+    /* --- Khu vực khối ảnh trái & phải --- */
+    .banner-img-left, .banner-img-right {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    /* Ảnh GIF bên trái góc rộng */
+    .banner-img-left {
+        width: 25%;
+        border-right: 1px solid rgba(255, 20, 147, 0.15);
+    }
+    
+    .banner-img-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Giúp ảnh GIF lấp đầy khung mà không bị méo */
+    }
+
+    /* Ảnh Búa lightstick bên phải kính mờ */
+    .banner-img-right {
+        width: 15%;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 1px solid rgba(255, 20, 147, 0.15);
+    }
+
+    .banner-img-right img {
+        height: 85%;
+        width: auto;
+        object-fit: contain;
+        /* Tạo hiệu ứng bóng đổ phát sáng nhẹ cho chiếc búa */
+        filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.5));
+    }
+
+    /* --- Khu vực thông tin ở giữa (Hiệu ứng loang màu và chữ phát sáng) --- */
+    .banner-center-content {
+        flex-grow: 1;
+        height: 100%;
+        /* Hiệu ứng loang màu Đen mix Hồng chuyển sắc mượt mà */
+        background: linear-gradient(135deg, #1f0516 0%, #3a0025 50%, #ff1493 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    /* Tên sinh viên nổi bật */
+    .student-name {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: 2px;
+        /* Đổ bóng chữ tạo hiệu ứng Neon chìm */
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 
+                     0 0 20px rgba(255, 20, 147, 0.8);
+        margin-bottom: 5px;
+    }
+
+    /* Mã lớp học */
+    .class-code {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #ff69b4;
+        letter-spacing: 3px;
+        text-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
+        margin-bottom: 12px;
+    }
+
+    /* --- Khu vực chữ chạy Marquee được tân trang --- */
+    .marquee-container {
+        width: 80%;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 6px 15px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 20, 147, 0.2);
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .marquee-container marquee {
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+    
+    .marquee-container span {
+        color: #ffb6c1; /* Màu hồng phấn nhẹ nhàng cho dòng chữ chạy */
+        text-shadow: 0 0 5px rgba(255, 182, 193, 0.5);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="banner-container">
+    <div class="banner-img-left">
+        <img src="ảnh/፧ 𝐁𝐥𝐚𝐜𝐤𝐩𝐢𝐧𝐤 𝐆𝐈𝐅.gif" alt="Blackpink GIF">
+    </div>
+    
+    <div class="banner-center-content">
+        <div class="student-name">ĐẶNG THỊ THÙY DƯƠNG</div>
+        <div class="class-code">CN24CD</div>
+        
+        <div class="marquee-container">
+            <marquee direction="left" scrollamount="5"> 
+                <span>Hé lô Các Tình Iu Của kem Đến Với Thiết Kế Web </span>
+            </marquee>
+        </div>
+    </div>
+    
+    <div class="banner-img-right">
+        <img src="ảnh/cay bua.jpg" alt="Lightstick">
+    </div>
+</div>
+
+</body>
+</html>

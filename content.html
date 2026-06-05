@@ -1,0 +1,206 @@
+<<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<base target="main">
+<title>Mục Lục - BLACKPINK Style</title>
+<style type="text/css">
+    /* --- Khởi tạo và thiết kế nền loang màu tổng thể --- */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        /* Hiệu ứng loang màu từ góc chéo giữa đen huyền bí và hồng neon đậm */
+        background: linear-gradient(135deg, #0b0c10 0%, #1a0813 40%, #2d001f 100%);
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        padding: 25px 15px;
+        min-height: 100vh;
+        color: #ffffff;
+        overflow-x: hidden;
+    }
+
+    /* Thêm hiệu ứng hạt ánh sáng mờ ảo phía sau sidebar (Tùy chọn thẩm mỹ) */
+    body::before {
+        content: '';
+        position: fixed;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(248, 70, 225, 0.1) 0%, transparent 60%);
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* --- Khu vực Menu chính --- */
+    .menu-section {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    /* --- Thiết kế lại Nút tiêu đề mục (Accordion Header) --- */
+    .section-header {
+        /* Gradient loang màu Đen - Hồng kết hợp bo góc */
+        background: linear-gradient(135deg, #1f0516 0%, #ff1493 100%);
+        color: #ffffff;
+        padding: 14px 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.05rem;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* Đổ bóng phát sáng viền hồng nhạt */
+        box-shadow: 0 4px 15px rgba(255, 20, 147, 0.2);
+        border: 1px solid rgba(248, 70, 225, 0.3);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        letter-spacing: 0.5px;
+    }
+    
+    /* Hiệu ứng hover loang màu rực rỡ và đổ bóng sâu hơn */
+    .section-header:hover {
+        background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(255, 20, 147, 0.5);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+
+    /* Biểu tượng mũi tên đi kèm hiệu ứng xoay khi mở */
+    .section-header::after {
+        content: '▼';
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .section-header.active::after {
+        transform: rotate(180deg);
+    }
+    
+    /* --- Thiết kế danh sách con (Kính mờ - Glassmorphism) --- */
+    .menu-items {
+        list-style: none;
+        padding: 8px;
+        background: rgba(20, 10, 17, 0.6);
+        backdrop-filter: blur(10px); /* Làm mờ hậu cảnh */
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 20, 147, 0.15);
+        margin-bottom: 10px;
+        box-shadow: inset 0 0 15px rgba(248, 70, 225, 0.05);
+    }
+    
+    .menu-items li {
+        margin-bottom: 8px;
+    }
+
+    .menu-items li:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Tiêu đề phụ bên trong Bài Tập HTML */
+    .menu-items h3 {
+        padding: 10px 5px 5px 5px;
+        text-align: center;
+        border-bottom: 1px dashed rgba(248, 70, 225, 0.3);
+        margin-bottom: 10px;
+    }
+
+    .menu-items h3 span {
+        font-size: 0.85rem !important;
+        letter-spacing: 1px;
+        color: #ff69b4;
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        font-weight: bold;
+    }
+    
+    /* --- Thiết kế liên kết bài tập --- */
+    .menu-items a {
+        display: block;
+        padding: 10px 15px;
+        color: #e0e0e0;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-left: 3px solid transparent;
+    }
+    
+    /* Hiệu ứng hover phủ màu hồng, loang viền và đổ bóng chữ */
+    .menu-items a:hover {
+        background: rgba(255, 20, 147, 0.15);
+        color: #ffffff;
+        padding-left: 20px;
+        border-left-color: #ff1493;
+        text-shadow: 0 0 5px rgba(255, 20, 147, 0.8);
+        box-shadow: 3px 0 10px rgba(255, 20, 147, 0.1);
+    }
+</style>
+</head>
+
+
+<div class="menu-section">
+    <div class="section-header" onclick="toggleMenu('menu1')">
+        📝 Bài Tập 1 ▼
+    </div>
+
+    <ul class="menu-items" id="menu1" style="display: none;">
+        <li><strong><a href="Baitap1 2403/index.html" target="main">Bài 1 </a> </strong></li>
+		<li><strong><a href="Baitap1_2_Excite/index.html" target="main">Bài 2 </a> </strong></li>
+		<li><strong><a href="Baitap1_3_fee_com/index.html" target="main">Bài 3 </a> </strong></li>
+		<li><strong><a href="Baitap1_4_SCALL/index.html" target="main">Bài 4 </a></strong> </li>
+		<li><strong><a href="Baitap1_5_Phieudangky/index.html" target="main">Bài 5 phiếu đăng ký </a></strong> </li>
+    </ul>
+	<div class="section-header" onclick="toggleMenu('menu2')">
+        📝 Bài HTML ▼
+    </div>
+
+    <ul class="menu-items" id="menu2" style="display: none;">
+        <h3> <span style="font-size: 20px"> BÀI TẬP HTML CƠ BẢN </span></h3>
+		<li><strong> <a href="BaitapHTML/HTML/wellcome.html">wellcome</a></strong></li>
+		<li><strong> <a href="BaitapHTML/HTML/Cohaimo.html">Cohaimo</a></strong></li>
+		<li><strong> <a href="BaitapHTML/HTML/Chisotrenduoi.html">Chisotrenduoi</a></strong></li>
+		<li><strong> <a href="BaitapHTML/HTML/Kyhieudacbiet.html">Kyhieudatbiet</a></strong></li>
+		<li><strong> <a href="BaitapHTML/HTML/Hieuungvb.html">Hieuungvb</a></strong></li>
+		<li><strong> <a href="BaitapHTML/HTML/ChuongTrinhDTWED1.html">ChuonhtrinhDTWEB1</a></strong></li>
+		<li><a href="BaitapHTML/HTML/ChuongTrinhDTWED2.html"><strong>ChuonhtrinhDTWEB2</strong></a><strong></strong></strong></li>
+		<li><strong><a href="BaitapHTML/HTML/ChuongTrinhDTW.html">ChuonhtrinhDTWEB</a></strong></strong></li>
+		<li><strong><a href="BaitapHTML/HTML/12Chuongtrinhdaotao.html">12 Chuonhtrinhdaotao</a></strong></strong></li>
+		<li><strong><a href="BaitapHTML/HTML/12ChuongtrinhDTWED.html">12ChuonhtrinhDTWEB</a></strong></strong></li>
+		<li><strong><a href="BaitapHTML/HTML/DanhBaWed.html">Danh ba web</a></strong></strong></li>
+		<li><strong><a href="BaitapHTML/HTML/TaiSanBill.html">Tai San Bill</a></strong></strong></li>
+		<li><strong><a href="BaitapHTML/HTML/NhacMP3.html">MP3</a></strong></strong></li>
+		<li><strong><a href="BaitapHTML/HTML/NhacNen.html">Nhac nen</a></strong></strong></li>
+		<li><strong><a href="BaitapHTML/HTML/KQHT.html">KQHT</a></strong></strong></li>
+    </ul>
+	<div class="section-header" onclick="toggleMenu('menu3')">
+        📝 Bài Tập 2 ▼
+    </div>
+
+    <ul class="menu-items" id="menu3" style="display: none;">
+        <li><strong><a href="bai2_1/index.html">Bài 2.1 Online</a></strong></strong></li>
+<li><strong><a href="bai2_2/index.html">Bài 2.2 hoa Cảnh</a></strong></strong></li>
+<li><strong><a href="bai2_3/gioithieu.html">Bài 2.3 CLB MY THUAT</a></strong></strong></li>
+<li><strong><a href="bai2_4/template.html">Bài 2.4  MY PHAM</a></strong></strong></li>
+    </ul>
+</div>
+<script>
+	function toggleMenu(id) {
+		var menu = document.getElementById(id);
+	
+		if (menu.style.display === "none") {
+			menu.style.display = "block";
+		} else {
+			menu.style.display = "none";
+		}
+	}
+	</script>
+</html>
