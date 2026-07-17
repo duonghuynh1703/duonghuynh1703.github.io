@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+    /* Thiết lập nền loang màu Đen mix Hồng */
+    body {
+        background: radial-gradient(circle at center, #2d0b23 0%, #12030e 50%, #000000 100%);
+        color: #ffffff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Tạo hiệu ứng chữ phát sáng đẹp mắt cho lời chào */
+    .welcome-text {
+        font-size: 36px;
+        font-weight: bold;
+        color: #E57FEC;
+        text-shadow: 0 0 10px rgba(229, 127, 236, 0.8), 
+                     0 0 20px rgba(229, 127, 236, 0.5), 
+                     0 0 30px rgba(229, 127, 236, 0.3);
+        padding: 20px;
+        border: 1px solid rgba(229, 127, 236, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(5px);
+    }
+</style>
+</head>
+
+<body>
+<div class="welcome-text">
+<script type="text/javascript">
+    var d = new Date();
+    var time = d.getHours();
+
+    if (time < 10) 
+    {
+        document.writeln("Chào buổi sáng");
+    } 
+    else if (time < 17) 
+    {
+        document.writeln("Chào buổi chiều");
+    } 
+    else 
+    {
+        document.writeln("Chào buổi tối");
+    }
+</script>
+</div>
+</body>
+</html>
