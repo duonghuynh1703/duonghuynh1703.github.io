@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bài 3 - Câu lệnh điều khiển</title>
+    <style type="text/css">
+        /* Thiết lập nền loang màu Đen mix Hồng cực đẹp */
+        body {
+            background: radial-gradient(circle at center, #2d0b23 0%, #12030e 50%, #000000 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Thiết kế khung bảng hiện đại, bo góc và đổ bóng mờ */
+        table {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 127, 236, 0.2);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        caption h3 {
+            color: #E57FEC;
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(229, 127, 236, 0.5);
+        }
+
+        td {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Định dạng ô nhập liệu */
+        input[type="text"] {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(229, 127, 236, 0.4);
+            border-radius: 8px;
+            color: #ffffff;
+            padding: 8px 12px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            width: 180px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #E57FEC;
+            box-shadow: 0 0 8px rgba(229, 127, 236, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Định dạng các nút phép toán */
+        input[type="button"] {
+            background: linear-gradient(135deg, #E57FEC 0%, #a83baf 100%);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(229, 127, 236, 0.3);
+        }
+
+        input[type="button"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(229, 127, 236, 0.6);
+            filter: brightness(1.1);
+        }
+
+        input[type="button"]:active {
+            transform: translateY(1px);
+        }
+
+        /* Định dạng kết quả */
+        #ketqua {
+            color: #E57FEC;
+            font-size: 20px;
+            margin: 0;
+            text-shadow: 0 0 8px rgba(229, 127, 236, 0.5);
+        }
+    </style>
+</head>
+<body>
+<center>
+    <table border="0">
+        <caption>
+            <h3>Bài 3. Làm quen với các phép toán<br>(tt)</h3>
+        </caption>
+        <tbody>
+            <tr>
+                <td>Nhập số thứ 1</td>
+                <td><input type="text" id="txtso1" placeholder="Nhập số..."></td>
+            </tr>
+            <tr>
+                <td>Nhập số thứ 2</td>
+                <td><input type="text" id="txtso2" placeholder="Nhập số..."></td>
+            </tr>
+            <tr>
+                <td>Phép toán</td>
+                <td>
+                    <input type="button" name="cong" id="cong" value="+">
+                    <input type="button" name="tru" id="tru" value="-">
+                    <input type="button" name="nhan" id="nhan" value="x">
+                    <input type="button" name="chia" id="chia" value="/">
+                </td>
+            </tr>
+            <tr>
+                <td>Kết quả:</td>
+                <td><p id="ketqua" style="font-weight: bold"></p></td>
+            </tr>
+        </tbody>
+    </table>
+</center>
+
+<script>
+    // Lấy phần tử HTML dùng để in kết quả
+    var theKetQua = document.getElementById("ketqua");
+
+    // 1. Xử lý khi bấm nút Cộng (+)
+    document.getElementById("cong").onclick = function() {
+        var so1 = Number(document.getElementById("txtso1").value);
+        var so2 = Number(document.getElementById("txtso2").value);
+        theKetQua.innerHTML = so1 + so2;
+    };
+
+    // 2. Xử lý khi bấm nút Trừ (-)
+    document.getElementById("tru").onclick = function() {
+        var so1 = Number(document.getElementById("txtso1").value);
+        var so2 = Number(document.getElementById("txtso2").value);
+        theKetQua.innerHTML = so1 - so2;
+    };
+
+    // 3. Xử lý khi bấm nút Nhân (x)
+    document.getElementById("nhan").onclick = function() {
+        var so1 = Number(document.getElementById("txtso1").value);
+        var so2 = Number(document.getElementById("txtso2").value);
+        theKetQua.innerHTML = so1 * so2;
+    };
+
+    // 4. Xử lý khi bấm nút Chia (/)
+    document.getElementById("chia").onclick = function() {
+        var so1 = Number(document.getElementById("txtso1").value);
+        var so2 = Number(document.getElementById("txtso2").value);
+
+        // Kiểm tra xem số chia có bằng 0 hay không
+        if (so2 === 0) {
+            theKetQua.innerHTML = "Lỗi: Không thể chia cho 0!";
+        } else {
+            theKetQua.innerHTML = so1 / so2;
+        }
+    };
+</script>
+</body>
+</html>
