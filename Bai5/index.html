@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bài 5 - Đồng hồ chạy giờ</title>
+    <style type="text/css">
+        /* Thiết lập nền loang màu Đen mix Hồng cực đẹp */
+        body {
+            background: radial-gradient(circle at center, #2d0b23 0%, #12030e 50%, #000000 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Khung hiển thị đồng hồ phong cách Neon */
+        #dong-ho {
+            font-size: 3.5rem;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace; /* Giữ font đơn sắc monospace như đề bài */
+            color: #E57FEC;
+            text-shadow: 0 0 10px rgba(229, 127, 236, 0.8), 
+                         0 0 20px rgba(229, 127, 236, 0.4);
+            padding: 20px 40px;
+            border: 1px solid rgba(229, 127, 236, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="dong-ho">00:00:00</div>
+
+<script>
+    function capNhatDongHo() {
+        const bayGio = new Date();
+
+        // Định dạng thời gian theo chuẩn Việt Nam (HH:mm:ss)
+        const chuoiThoiGian = bayGio.toLocaleTimeString('vi-VN');
+
+        // Ghi vào thẻ div
+        document.getElementById('dong-ho').innerText = chuoiThoiGian;
+    }
+
+    // Chạy ngay lần đầu tiên để tránh bị trễ 1 giây
+    capNhatDongHo();
+
+    // Chạy lặp lại sau mỗi 1 giây
+    setInterval(capNhatDongHo, 1000);
+</script>
+</body>
+</html>
