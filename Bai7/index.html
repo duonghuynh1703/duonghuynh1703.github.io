@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bài 7 - Bắt sự kiện bật tắt đèn</title>
+<style type="text/css">
+    /* Thiết lập nền loang màu Đen mix Hồng cực đẹp */
+    body {
+        background: radial-gradient(circle at center, #2d0b23 0%, #12030e 50%, #000000 100%);
+        color: #ffffff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Khung bọc khu vực tương tác bóng đèn sang xịn mịn */
+    .lamp-container {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(229, 127, 236, 0.2);
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
+
+    /* Khoảng cách giữa nút bấm và hình ảnh */
+    .controls {
+        margin-bottom: 20px;
+    }
+
+    /* Thiết kế nút bấm hiện đại, bo góc tròn */
+    input[type="button"] {
+        background: linear-gradient(135deg, #E57FEC 0%, #a83baf 100%);
+        border: none;
+        color: white;
+        padding: 8px 24px;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 0 6px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(229, 127, 236, 0.3);
+    }
+
+    input[type="button"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(229, 127, 236, 0.6);
+        filter: brightness(1.1);
+    }
+
+    input[type="button"]:active {
+        transform: translateY(1px);
+    }
+
+    /* Định dạng hình ảnh bóng đèn */
+    #my_image {
+        display: block;
+        max-width: 320px;
+        height: auto;
+        border-radius: 8px;
+        margin: 0 auto;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="lamp-container">
+        <div class="controls">
+            <input name="tat" type="button" id="tat" value="Tắt" onclick="document.getElementById('my_image').src='images/bua_tat.jpg'" />
+            <input name="mo" type="button" id="mo" value="Mở" onclick="document.getElementById('my_image').src='images/bua_mo.jpg'"/>
+        </div>
+        <img src="images/bua_tat.jpg" name="my_image" id="my_image" alt="Bóng đèn" />
+    </div>
+
+</body>
+</html>
